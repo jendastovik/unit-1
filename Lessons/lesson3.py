@@ -39,4 +39,10 @@ def  ipv6Machine(N: int) -> str:
         IPs.append(IP)
     return IPs
     
-print(ipv6Machine(10))
+#print(ipv6Machine(10))
+
+N = 10
+IPs = [":".join(["".join(["0123456789ABCDEF"[random.randint(0, 15)] for _ in range(4)]) for p in range(8)]) for i in range(N)]
+print(IPs)
+
+
