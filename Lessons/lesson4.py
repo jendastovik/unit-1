@@ -21,4 +21,8 @@ class generator:
         return MACs
     
 gen = generator(10)
-print(gen.randomMacGenerator())
+#print(gen.randomMacGenerator())
+
+N = 90
+ls = [i for i in range(1, N) if N%i == 0]
+print(ls)
