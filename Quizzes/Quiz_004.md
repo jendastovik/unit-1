@@ -20,5 +20,9 @@ class generator:
             if num not in MACs:
                 MACs.append(num)
         return MACs
+
+def PerfecDeviders(N):
+    dev = [i for i in range(1, N) if N%i == 0]
+    return dev
 ```
 
