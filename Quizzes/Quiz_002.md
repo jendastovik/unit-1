@@ -50,4 +50,4 @@ def measureFunctionst():
 ![](/assets/Q_2.2.png)
 
 ## Flowchart
-![](/flowCharts/ipmachine.png)
+![](/flowCharts/ipmachine2.png)
