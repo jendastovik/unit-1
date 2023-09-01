@@ -16,6 +16,12 @@ def quizz1(str1: str):
         final += " "
     return final
 
+print("internationalization" + " -> " + quizz1("internationalization"))
+print("localization" + " -> " + quizz1("localization"))
+print("hello world!" + " -> " + quizz1("hello world!"))
+print("98 99 100 101 1062" + " -> " + quizz1("98 99 100 101 1062"))
+print("(codin) + (game) = (codingame)" + " -> " + quizz1("(codin) + (game) = (codingame)"))
+
 
 def get_info():
     """

@@ -14,4 +14,4 @@ def wordShortener(str1: str):
 ```
 
 ## Output
-```.output
+![](/assets/Q_1.png) 
