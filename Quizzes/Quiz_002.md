@@ -45,3 +45,6 @@ def measureFunctionst():
     end = time.time()
     print(end - start)
 ```
+## Output
+![](/assets/Q_2.1.png)
+![](/assets/Q_2.2.png)

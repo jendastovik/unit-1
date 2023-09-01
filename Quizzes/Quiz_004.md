@@ -25,6 +25,7 @@ def PerfecDeviders(N):
     dev = [i for i in range(1, N) if N%i == 0]
     return dev
 ```
-## Evidence
-![]() 
+## Output
+![](/assets/Q_4.1.png)
+![](/assets/Q_4.2.png) 
 
