@@ -48,3 +48,6 @@ def measureFunctionst():
 ## Output
 ![](/assets/Q_2.1.png)
 ![](/assets/Q_2.2.png)
+
+## Flowchart
+![](/flowCharts/ipmachine.png)
