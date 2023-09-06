@@ -17,5 +17,5 @@ def wordShortener(str1: str):
 ![](/assets/Q_1.png) 
 
 ## Flowchart
-![](/flowCharts/quizz1.png)
+![](/flowCharts/q1.png)
 

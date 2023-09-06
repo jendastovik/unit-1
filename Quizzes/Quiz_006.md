@@ -15,3 +15,6 @@ def ToBin(dec:int):
 
 ## Output
 ![](/assets/Q_6.1.png)
+
+## Flowchart
+![](/flowCharts/q6.png)

@@ -7,15 +7,13 @@ print("hello world -> " + str(val(word)))
 print("hello -> " + str(val("hello")))
 print("world -> " + str(val("world")))
 print("a -> " + str(val("m")))
+print("math -> " + str(val("math")))
 
 def q5(word):
     sum = 0
     for n in word.upper():
         print(ord(n)-64, end=" ")
-        if n != " ":
-            sum += ord(n) - 64
-        else:
-            sum += 0
+        sum += ord(n) - 64
     return sum
 
 print("math -> " + str(q5(word)))
