@@ -38,6 +38,24 @@ def  ipv6Machine(N: int) -> str:
                 break
         IPs.append(IP)
     return IPs
+
+def q3(N:int):
+    """
+    returns random N ipv6 addresses
+    """
+    IPs = []
+    for i in range(N):
+        for j in range(100):
+            IP = ""
+            for j in range(8):
+                hex = randomHexadecimal()
+                IP += hex
+                if j != 7:
+                    IP += ":"
+            if IP not in IPs:
+                    break
+        IPs.append(IP)
+    return IPs
     
 #print(ipv6Machine(10))
 
