@@ -7,3 +7,6 @@ def ValueSentence(sentence:str):
 ```
 ## Output
 ![](/assets/Q_5.png)
+
+## Flowchart
+![](/flowCharts/q5.png)

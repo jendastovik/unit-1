@@ -7,3 +7,6 @@ def ipV6Machine(N):
 ```
 ## Output
 ![](/assets/Q_3.png)
+
+## Flowchart
+![](/flowCharts/q3.png)

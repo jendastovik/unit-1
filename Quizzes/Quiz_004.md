@@ -29,3 +29,6 @@ def PerfecDeviders(N):
 ![](/assets/Q_4.1.png)
 ![](/assets/Q_4.2.png) 
 
+## Flowchart
+![](/flowCharts/q4.png)
+
