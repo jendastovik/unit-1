@@ -58,5 +58,5 @@ def rand():
 
 
 
-
+print(rand())
 
