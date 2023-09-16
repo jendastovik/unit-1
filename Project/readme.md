@@ -43,10 +43,10 @@ Justify the tools/structure of your solution
 
 
 ## Record of Tasks
-|   | Task No | Planned Action        | Planned |   | Task No | Planned Action        | Planned Outcome                                                                          | Time estimate | Target completion date | Criterion |   |
-|---|---------|-----------------------|------------------------------------------------------------------------------------------|---------------|------------------------|-----------|---|
-|   | 1       | Create system diagram | To have a clear idea of the hardware and software requirements for the proposed solution | 10min         | Sep 24                 | B         |   |
-|   | 2       | Create system diagram | To have a flow diagram and the code for the login system                                 | 30min         | Sep 14                 | B, C      |   |
+| Task No | Planned Action        | Planned Outcome                                                                          | Time estimate | Target completion date | Criterion |
+|---------|-----------------------|------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
+| 1       | Create system diagram | To have a clear idea of the hardware and software requirements for the proposed solution | 10min         | Sep 8                  | B         |
+| 2       | Create login system   | to have a flow diagram and the code for login                                            | 30min         | Sep 14                 | B, C      |
 
 # Criteria C: Development
 
