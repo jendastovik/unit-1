@@ -66,3 +66,4 @@ def reverse6(string:str) -> str:
     return output
 
 print(reverse6("hello"))
+print(reverse6("hello world"))
