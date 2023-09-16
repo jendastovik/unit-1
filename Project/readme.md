@@ -38,6 +38,8 @@ Justify the tools/structure of your solution
 # Criteria B: Design
 
 ## System Diagram
+![](/system_diagram.png)
+
 
 ## Flow Diagrams
 ![](/flowCharts/try_login.png)
