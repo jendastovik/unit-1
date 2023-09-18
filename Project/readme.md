@@ -19,9 +19,11 @@ An example of the data stored is
 ## Proposed Solution
 
 Design statement:
-I will to design and make a ———— for a client who is ———. The ——– will about ———— and is constructed using the software ———. It will take  ———- to make and will be evaluated according to the criteria ———.
+I will to design and make an electronic ladger for a client who is Mr. Sato. The ladger will about Tether and is constructed using the software Python. It will take  a week to make and will be evaluated according to the criteria below
 
-** add a description of your coin and citation **
+## About Tether
+
+Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate the use of fiat currencies in a digital manner. Tether works to disrupt the conventional financial system via a more modern approach to money. Tether has made headway by giving customers the ability to transact with traditional currencies across the blockchain, without the inherent volatility and complexity typically associated with a digital currency. As the first blockchain-enabled platform to facilitate the digital use of traditional currencies (a familiar, stable accounting unit), Tether has democratised cross-border transactions across the blockchain.
 
 Justify the tools/structure of your solution
 
@@ -29,45 +31,54 @@ Justify the tools/structure of your solution
 1. The electronic ledger is a text-based software (Runs in the Terminal).
 2. The electronic ledger display the basic description of the cyrptocurrency selected.
 3. The electronic ledger allows to enter, withdraw and record transactions.
-4.
-5.
-6.
+4. The electronic ledger allows to display the current balance.
+5. The electronic ledger allows to display the transaction history, which can be filtred by date, category or amount in certain range.
+6. You can switch between different users with different transactions, every user has it's own password and username.
 
 # Criteria B: Design
 
 ## System Diagram
+![](/system_diagram.png)
+
 
 ## Flow Diagrams
+![](/flowCharts/try_login.png)
+flow diagram for the try_login function
+![](/flowCharts/do_login.png)
+flow diagram for the do_login function
 
 
 ## Record of Tasks
-| Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
-|---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Create system diagram                                         | To have a clear idea of the hardware and software requirements for the proposed solution                        | 10min         | Sep 24                 | B         |
+| Task No | Planned Action        | Planned Outcome                                                                          | Time estimate | Target completion date | Criterion |
+|---------|-----------------------|------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
+| 1       | Create system diagram | To have a clear idea of the hardware and software requirements for the proposed solution | 10min         | Sep 8                  | B         |
+| 2       | Create login system   | to have a flow diagram and the code for login                                            | 30min         | Sep 14                 | B, C      |
 
 # Criteria C: Development
 
 ## Login System
-My client requires a system to protect the private data. I thought about using a login system to accomplish this requirement using a if condition and the open command to work with a csv file. More description of the code....
-```.py
-def simple_login(user:str, password:str)->bool:
-    '''
-    Simple authentication, needs fle user.csv
-    :param user: string
-    :param password: string
-    :return: True/False if user is in database
-    '''
-    with open("user.csv") as file:
-        database = file.readlines()
-    output = False
-    for line in database:
-        line_cleaned = line.strip() #remove \n
-        user_pass = line_cleaned.split(",")
-        if user == user_pass[0] and password == user_pass[1]:
-            output = True
-            break
+My client requires a system to protect the private data. I thought about using a login system to accomplish this requirement using a if condition and the open command to work with a csv file. The csv file contains the username and password of the user. The code is the following:
+```python
+def try_login(username:str, password:str) -> bool:
+    with open ("/Project/users.csv", "r") as f:
+        data = f.readlines()
+    for line in data:
+        line = line.strip().split(",")
+        if username == line[0] and password == line[1]:
+            print("Login successful")
+            return True
+    print("Login failed")
+    return False
 
-    return output
-
-
+def do_login():
+    attempts = 3
+    input_username = input("Username: ")
+    input_password = input("Password: ")
+    result = try_login(input_username, input_password)
+    while not result and attempts > 0:
+        attempts -= 1
+        print("You have {attempts} attempts left")
+        input_username = input("Username: ")
+        input_password = input("Password: ")
+        result = try_login(input_username, input_password)
 ```

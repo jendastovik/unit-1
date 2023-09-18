@@ -1,0 +1,19 @@
+{
+    "user1": [
+        {
+            "date": "2018-01-01",
+            "amount": 1000,
+            "description": "Salary"
+        },
+        {
+            "date": "2018-01-02",
+            "amount": -100,
+            "description": "Groceries"
+        },
+        {
+            "date": "2020-01-01",
+            "amount": 100,
+            "description": "test"
+        }
+    ]
+}
