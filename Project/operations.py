@@ -35,11 +35,13 @@ def Find_ByDescription(dates, amounts, descriptions, description):
 def Find_ByAmount(dates, amounts, descriptions, minamount, maxamont):
     ret_dates = []
     ret_descriptions = []
+    ret_amounts = []
     for i in range(len(amounts)):
-        if amounts[i] >= minamount and amounts[i] <= maxamont:
+        if int(amounts[i]) >= minamount and int(amounts[i]) <= maxamont:
             ret_dates.append(dates[i])
             ret_descriptions.append(descriptions[i])
-    return ret_dates, ret_descriptions
+            ret_amounts.append(amounts[i])
+    return ret_dates, ret_descriptions, ret_amounts
 
 def add_transaction(date, amount, description, user):
     with open("Project/transactions.json", "r") as f:
