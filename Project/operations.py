@@ -1,4 +1,5 @@
 import json
+import colours
 
 def load_transactions(user:str):
     with open("Project/transactions.json", "r") as f:
@@ -59,8 +60,14 @@ def Balance(amounts):
 def Delete_Transaction(date, amount, description, user):
     with open("Project/transactions.json", "r") as f:
         data = json.load(f)
+    deleted = False
     for tran in data[user]:
         if tran["date"] == date and tran["amount"] == amount and tran["description"] == description:
             data[user].remove(tran)
+            deleted = True
+            colours.pGreen("Transaction deleted")
+    if not deleted:
+        colours.pRed("Transaction not found")
     with open("Project/transactions.json", "w") as f:
         json.dump(data, f, indent=4)
+    

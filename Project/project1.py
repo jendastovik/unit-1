@@ -1,4 +1,5 @@
 import operations
+from colours import *
 
 def try_login(username:str, password:str) -> bool:
     with open ("Project/users.csv", "r") as f:
@@ -6,9 +7,9 @@ def try_login(username:str, password:str) -> bool:
     for line in data:
         line = line.strip().split(",")
         if username == line[0] and password == line[1]:
-            print("Login successful")
+            pGreen("Login successful")
             return True
-    print("Login failed")
+    pRed("Login failed")
     return False
 
 def do_login():
@@ -18,7 +19,7 @@ def do_login():
     result = try_login(input_username, input_password)
     while not result and attempts > 0:
         attempts -= 1
-        print(f"You have {attempts} attempts left")
+        pRed(f"You have {attempts} attempts left")
         input_username = input("Username: ")
         input_password = input("Password: ")
         result = try_login(input_username, input_password)
@@ -54,7 +55,7 @@ def view_transactions(username:str):
 def main():
     result, username = do_login()
     if not result:
-        print("You have exceeded the number of attempts")
+        pRed("You have exceeded the number of attempts")
         return
     print(f"Welcome to the virtual lager, {username}")
     continue_program = True
@@ -79,7 +80,7 @@ def main():
             try:
                 operations.Delete_Transaction(date, amount, description, username)
             except:
-                print("Transaction not found")
+                pRed("Transaction not found")
         elif choice == "4":
             dates, amounts, descriptions = operations.load_transactions(username)
             print(f"Total balance is: {operations.Balance(amounts)}")
