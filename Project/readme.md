@@ -32,8 +32,8 @@ Justify the tools/structure of your solution
 2. The electronic ledger display the basic description of the cyrptocurrency selected.
 3. The electronic ledger allows to enter, withdraw and record transactions.
 4. The electronic ledger allows to display the current balance.
-5. The electronic ledger allows to display the transaction history, which can be filtred by date or category.
-6. The elctronic ladger is protected by password and hash function.
+5. The electronic ledger allows to display the transaction history, which can be filtred by date, category or amount in certain range.
+6. You can switch between different users with different transactions, every user has it's own password and username.
 
 # Criteria B: Design
 
