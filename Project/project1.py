@@ -35,17 +35,20 @@ def view_transactions(username:str):
     if choice == "1":
         date = input("Enter date: ")
         amounts, descriptions = operations.Find_ByDate(dates, amounts, descriptions, date)
+        pGreen(f"transactions for the date {date} are the following:")
         for i in range(len(amounts)):
             print(f"{amounts[i]}, {descriptions[i]}")
     elif choice == "2":
         description = input("Enter description: ")
         dates, amounts = operations.Find_ByDescription(dates, amounts, descriptions, description)
+        pGreen(f"transactions for the description '{description}' are the following:")
         for i in range(len(dates)):
             print(f"{dates[i]}, {amounts[i]}")
     elif choice == "3":
         minamount = int(input("Enter min amount: "))
         maxamount = int(input("Enter max amount: "))
         dates, descriptions, amounts = operations.Find_ByAmount(dates, amounts, descriptions, minamount, maxamount)
+        pGreen(f"transactions for the amount between {minamount} and {maxamount} are the following:")
         for i in range(len(dates)):
             print(f"{dates[i]}, {amounts[i]}, {descriptions[i]}")
     elif choice == "4":

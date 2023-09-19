@@ -82,3 +82,73 @@ def do_login():
         input_password = input("Password: ")
         result = try_login(input_username, input_password)
 ```
+## Saving transactions
+My client requires a system to save the transactions. I thought about using a json file to accomplish this requirement. Json is more practical than csv because it allows to save the data in a dictionary format and allows to create different transaction lists for different users. The json file of every single user contains list of transactions with the date, description, category and amount of the transaction. The code is the following:
+```python
+def load_transactions(user:str):
+    with open("Project/transactions.json", "r") as f:
+        data = json.load(f)
+    dates = []
+    amounts = []
+    descriptions = []
+    for tran in data[user]:
+        dates.append(tran["date"])
+        amounts.append(tran["amount"])
+        descriptions.append(tran["description"])
+        #print(f"{tran['date']}: {tran['amount']}, {tran['description']}")
+    return dates, amounts, descriptions
+
+def add_transaction(date, amount, description, user):
+    with open("Project/transactions.json", "r") as f:
+        data = json.load(f)
+    data[user].append({"date": date, "amount": amount, "description": description})
+    with open("Project/transactions.json", "w") as f:
+        json.dump(data, f, indent=4)
+
+def Delete_Transaction(date, amount, description, user):
+    with open("Project/transactions.json", "r") as f:
+        data = json.load(f)
+    deleted = False
+    for tran in data[user]:
+        if tran["date"] == date and tran["amount"] == amount and tran["description"] == description:
+            data[user].remove(tran)
+            deleted = True
+            colours.pGreen("Transaction deleted")
+    if not deleted:
+        colours.pRed("Transaction not found")
+    with open("Project/transactions.json", "w") as f:
+        json.dump(data, f, indent=4)
+```
+## Filtering transactions
+My client requires a system to filter the transactions. I thought about using a function to filter the transactions by date, category or amount in certain range. The code is the following:
+```python
+def Find_ByDate(dates, amounts, descriptions, date):
+    ret_amounts = []
+    ret_descriptions = []
+    for i in range(len(dates)):
+        if dates[i] == date:
+            ret_amounts.append(amounts[i])
+            ret_descriptions.append(descriptions[i])
+    return ret_amounts, ret_descriptions
+
+def Find_ByDescription(dates, amounts, descriptions, description):
+    ret_dates = []
+    ret_amounts = []
+    for i in range(len(descriptions)):
+        if descriptions[i] == description:
+            ret_dates.append(dates[i])
+            ret_amounts.append(amounts[i])
+    return ret_dates, ret_amounts
+
+def Find_ByAmount(dates, amounts, descriptions, minamount, maxamont):
+    ret_dates = []
+    ret_descriptions = []
+    ret_amounts = []
+    for i in range(len(amounts)):
+        if int(amounts[i]) >= minamount and int(amounts[i]) <= maxamont:
+            ret_dates.append(dates[i])
+            ret_descriptions.append(descriptions[i])
+            ret_amounts.append(amounts[i])
+    return ret_dates, ret_descriptions, ret_amounts
+```
+
