@@ -43,8 +43,10 @@ Justify the tools/structure of your solution
 
 ## Flow Diagrams
 ![](/flowCharts/try_login.png)
+
 flow diagram for the try_login function
 ![](/flowCharts/do_login.png)
+
 flow diagram for the do_login function
 
 
