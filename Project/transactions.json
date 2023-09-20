@@ -16,10 +16,6 @@
             "description": "test"
         }
     ],
-    "bob":[
-
-    ],
-    "alice":[
-
-    ]
+    "bob": [],
+    "alice": []
 }

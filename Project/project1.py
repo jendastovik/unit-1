@@ -25,11 +25,14 @@ def do_login():
         result = try_login(input_username, input_password)
     return result, input_username
 
+def print_text_file(filename:str):
+    with open(filename, "r") as f:
+        data = f.readlines()
+    for line in data:
+        print(line.strip())
+
 def view_transactions(username:str):
-    print("1. View transactions by date")
-    print("2. View transactions by description")
-    print("3. View transactions by amount")
-    print("4. View all transactions")
+    print_text_file("Project/texts/op2.txt")
     dates, amounts, descriptions = operations.load_transactions(username)
     choice = input("Enter your choice: ")
     if choice == "1":
@@ -52,22 +55,22 @@ def view_transactions(username:str):
         for i in range(len(dates)):
             print(f"{dates[i]}, {amounts[i]}, {descriptions[i]}")
     elif choice == "4":
+        pGreen(f"All {len(dates)} transactions are the following:")
         for i in range(len(dates)):
             print(f"{dates[i]}, {amounts[i]}, {descriptions[i]}")
+
 
 def main():
     result, username = do_login()
     if not result:
         pRed("You have exceeded the number of attempts")
         return
-    print(f"Welcome to the virtual lager, {username}")
+    print(f"Welcome to the virtual lager, {username}\n")
+    print_text_file("Project/texts/teather.txt")
     continue_program = True
     while continue_program:
-        print("1. View transactions (by date, description, amount)")
-        print("2. Add transaction")
-        print("3. Delete transaction")
-        print("4. View balance")
-        print("5. Exit")
+        print()
+        print_text_file("Project/texts/op1.txt")
         choice = input("Enter your choice: ")
         if choice == "1":
             view_transactions(username)
@@ -86,7 +89,7 @@ def main():
                 pRed("Transaction not found")
         elif choice == "4":
             dates, amounts, descriptions = operations.load_transactions(username)
-            print(f"Total balance is: {operations.Balance(amounts)}")
+            pGreen(f"Total balance is: {operations.Balance(amounts)}")
         elif choice == "5":
             continue_program = False
         

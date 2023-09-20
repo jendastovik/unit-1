@@ -1,0 +1,5 @@
+1. View transactions (by date, description, amount)
+2. Add transaction
+3. Delete transaction
+4. View balance
+5. Exit

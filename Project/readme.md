@@ -25,7 +25,6 @@ I will to design and make an electronic ladger for a client who is Mr. Sato. The
 
 Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate the use of fiat currencies in a digital manner. Tether works to disrupt the conventional financial system via a more modern approach to money. Tether has made headway by giving customers the ability to transact with traditional currencies across the blockchain, without the inherent volatility and complexity typically associated with a digital currency. As the first blockchain-enabled platform to facilitate the digital use of traditional currencies (a familiar, stable accounting unit), Tether has democratised cross-border transactions across the blockchain.
 
-Justify the tools/structure of your solution
 
 ## Success Criteria
 1. The electronic ledger is a text-based software (Runs in the Terminal).
@@ -38,23 +37,31 @@ Justify the tools/structure of your solution
 # Criteria B: Design
 
 ## System Diagram
-![](/system_diagram.png)
+![](/Project/diagram2.png)
 
 
 ## Flow Diagrams
-![](/flowCharts/try_login.png)
-
 flow diagram for the try_login function
-![](/flowCharts/do_login.png)
+
+![](/flowCharts/try_login.png)
 
 flow diagram for the do_login function
 
+![](/flowCharts/do_login.png)
+
+flow diagram for find_bydate function (works the same for find_bydescription and find_byamount)
+
+![](/flowCharts/Find_ByDate.png)
 
 ## Record of Tasks
-| Task No | Planned Action        | Planned Outcome                                                                          | Time estimate | Target completion date | Criterion |
-|---------|-----------------------|------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Create system diagram | To have a clear idea of the hardware and software requirements for the proposed solution | 10min         | Sep 8                  | B         |
-| 2       | Create login system   | to have a flow diagram and the code for login                                            | 30min         | Sep 14                 | B, C      |
+| Task No | Planned Action           | Planned Outcome                                                                          | Time estimate | Target completion date | Criterion |
+|---------|--------------------------|------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
+| 1       | Create system diagram    | To have a clear idea of the hardware and software requirements for the proposed solution | 10min         | Sep 8                  | B         |
+| 2       | Create login system      | To have a flow diagram and the code for login                                            | 30min         | Sep 14                 | B, C      |
+| 3       | Create filtration system | To have a functional system and flowchart for saving and filtering transactions          | 30min         | Sep 17                 | B, C      |
+| 4       | Add and del tran.        | To have system to delete and add transactions for different users                        | 15min         | Sep 18                 | C         |
+| 5       | Create colours           | To have different colour coding in terminal and make visualisation clearer               | 10min         | Sep 19                 | C         |
+| 6       | Edit text visualisation  | To save all most of the texts into txt. files                                            | 15min         | Sep 20                 | C         |
 
 # Criteria C: Development
 
