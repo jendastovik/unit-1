@@ -161,3 +161,13 @@ def Find_ByAmount(dates, amounts, descriptions, minamount, maxamont):
     return ret_dates, ret_descriptions, ret_amounts
 ```
 
+## viewing txt. files
+My client requires a system with which he/she can interact and that requires some text visualisation. I thought about using a txt. file to accomplish this requirement, which would eventualy allow also translation into different languages. The txt. file contains the basic description of the cryptocurrency selected or from which client can choose. The code is the following:
+```python
+def print_text_file(filename:str):
+    with open(filename, "r") as f:
+        data = f.readlines()
+    for line in data:
+        print(line.strip())
+```
+
