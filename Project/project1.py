@@ -2,6 +2,9 @@ import operations
 from colours import *
 
 def try_login(username:str, password:str) -> bool:
+    """
+    checks if the username and password are in the users.csv file
+    """
     with open ("Project/users.csv", "r") as f:
         data = f.readlines()
     for line in data:
@@ -13,6 +16,9 @@ def try_login(username:str, password:str) -> bool:
     return False
 
 def do_login():
+    """
+    gives the user 3 attempts to login and returns username and result
+    """
     attempts = 3
     input_username = input("Username: ")
     input_password = input("Password: ")
@@ -26,12 +32,18 @@ def do_login():
     return result, input_username
 
 def print_text_file(filename:str):
+    """
+    prints selected text file
+    """
     with open(filename, "r") as f:
         data = f.readlines()
     for line in data:
         print(line.strip())
 
 def view_transactions(username:str):
+    """
+    prints the transactions of a user and gives the user the option to filter the transactions
+    """
     print_text_file("Project/texts/op2.txt")
     dates, amounts, descriptions = operations.load_transactions(username)
     choice = input("Enter your choice: ")
@@ -61,6 +73,11 @@ def view_transactions(username:str):
 
 
 def main():
+    """
+    main function, goes through the program, 
+    gives the user the option to login
+    then view transactions, add transactions, delete transactions, view balance and exit
+    """
     result, username = do_login()
     if not result:
         pRed("You have exceeded the number of attempts")
