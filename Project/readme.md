@@ -1,4 +1,6 @@
 # Crypto Wallet
+![](/Project/tether_cover.png)
+
 
 # Criteria A: Planning
 
@@ -41,15 +43,15 @@ Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate
 
 
 ## Flow Diagrams
-flow diagram for the try_login function
+### Flow diagram for the try_login function
 
 ![](/flowCharts/try_login.png)
 
-flow diagram for the do_login function
+### Flow diagram for the do_login function
 
 ![](/flowCharts/do_login.png)
 
-flow diagram for find_bydate function (works the same for find_bydescription and find_byamount)
+### Flow diagram for find_bydate function (works the same for find_bydescription and find_byamount)
 
 ![](/flowCharts/Find_ByDate.png)
 
@@ -73,7 +75,7 @@ My client requires a system to protect the private data. I thought about using a
 def try_login(username:str, password:str) -> bool:
     with open ("/Project/users.csv", "r") as f:
         data = f.readlines()
-    for line in data:
+    for line in data: #checks if the username and password are in the csv file, therefore if the user exists
         line = line.strip().split(",")
         if username == line[0] and password == line[1]:
             print("Login successful")
@@ -85,8 +87,8 @@ def do_login():
     attempts = 3
     input_username = input("Username: ")
     input_password = input("Password: ")
-    result = try_login(input_username, input_password)
-    while not result and attempts > 0:
+    result = try_login(input_username, input_password) #calls try_login function which check users first try to login
+    while not result and attempts > 0: #gives user 3 attempts to login, calling try_login function again
         attempts -= 1
         print("You have {attempts} attempts left")
         input_username = input("Username: ")
@@ -97,73 +99,82 @@ def do_login():
 My client requires a system to save the transactions. I thought about using a json file to accomplish this requirement. Json is more practical than csv because it allows to save the data in a dictionary format and allows to create different transaction lists for different users. The json file of every single user contains list of transactions with the date, description, category and amount of the transaction. The code is the following:
 ```python
 def load_transactions(user:str):
-    with open("Project/transactions.json", "r") as f:
-        data = json.load(f)
+    with open("Project/transactions.json", "r") as f: #opens the json file
+        data = json.load(f) #uses json library to load the data
     dates = []
     amounts = []
     descriptions = []
-    for tran in data[user]:
+    for tran in data[user]: #goes through the list of transactions of the user, which are saved in the dictionary under his username in the json file
         dates.append(tran["date"])
         amounts.append(tran["amount"])
         descriptions.append(tran["description"])
-        #print(f"{tran['date']}: {tran['amount']}, {tran['description']}")
-    return dates, amounts, descriptions
+    return dates, amounts, descriptions #returns the lists of dates, amounts and descriptions
 
 def add_transaction(date, amount, description, user):
     with open("Project/transactions.json", "r") as f:
         data = json.load(f)
-    data[user].append({"date": date, "amount": amount, "description": description})
+    data[user].append({"date": date, "amount": amount, "description": description}) #adds the transaction to the list of transactions of the user, every transaction is a dictionary
     with open("Project/transactions.json", "w") as f:
-        json.dump(data, f, indent=4)
+        json.dump(data, f, indent=4) #saves the updated data in the json file
 
 def Delete_Transaction(date, amount, description, user):
     with open("Project/transactions.json", "r") as f:
         data = json.load(f)
     deleted = False
-    for tran in data[user]:
+    for tran in data[user]: #goes through the list of transactions of the user and deletes the transaction if it matches the input
         if tran["date"] == date and tran["amount"] == amount and tran["description"] == description:
             data[user].remove(tran)
             deleted = True
-            colours.pGreen("Transaction deleted")
+            colours.pGreen("Transaction deleted") #inform the user that the transaction was deleted
     if not deleted:
-        colours.pRed("Transaction not found")
+        colours.pRed("Transaction not found") #inform the user that the transaction was not found
     with open("Project/transactions.json", "w") as f:
-        json.dump(data, f, indent=4)
+        json.dump(data, f, indent=4) #saves the updated data in the json file
 ```
 ## Filtering transactions
-My client requires a system to filter the transactions. I thought about using a function to filter the transactions by date, category or amount in certain range. The code is the following:
+My client requires a system to filter the transactions. I thought about using a function to filter the transactions by date, category or amount in certain range. Functions take as an input lists with dates, amounts and descriptions, which have been loaded earlier. Elements of specific transaction are saved under the same index in the lists. The code is the following:
 ```python
 def Find_ByDate(dates, amounts, descriptions, date):
+    """
+    filters the transactions by date
+    """
     ret_amounts = []
     ret_descriptions = []
-    for i in range(len(dates)):
-        if dates[i] == date:
-            ret_amounts.append(amounts[i])
+    for i in range(len(dates)): #iterates through the dates
+        if dates[i] == date: #if the date is the same as the date we are looking for, it adds the amount and description to the lists
+            ret_amounts.append(amounts[i]) 
             ret_descriptions.append(descriptions[i])
-    return ret_amounts, ret_descriptions
+    return ret_amounts, ret_descriptions #returns the lists
+
 
 def Find_ByDescription(dates, amounts, descriptions, description):
+    """
+    filters the transactions by description
+    """
     ret_dates = []
     ret_amounts = []
-    for i in range(len(descriptions)):
-        if descriptions[i] == description:
+    for i in range(len(descriptions)): #iterates through the descriptions
+        if descriptions[i] == description: #if the description is the same as the description we are looking for, it adds the date and amount to the lists
             ret_dates.append(dates[i])
             ret_amounts.append(amounts[i])
     return ret_dates, ret_amounts
 
 def Find_ByAmount(dates, amounts, descriptions, minamount, maxamont):
+    """
+    filters the transactions by amount
+    """
     ret_dates = []
     ret_descriptions = []
     ret_amounts = []
-    for i in range(len(amounts)):
-        if int(amounts[i]) >= minamount and int(amounts[i]) <= maxamont:
+    for i in range(len(amounts)): #iterates through the amounts
+        if int(amounts[i]) >= minamount and int(amounts[i]) <= maxamont: #if the amount is between the min and max amount, it adds the date, description and amount to the lists
             ret_dates.append(dates[i])
             ret_descriptions.append(descriptions[i])
             ret_amounts.append(amounts[i])
     return ret_dates, ret_descriptions, ret_amounts
 ```
 
-## viewing txt. files
+## Viewing txt. files
 My client requires a system with which he/she can interact and that requires some text visualisation. I thought about using a txt. file to accomplish this requirement, which would eventualy allow also translation into different languages. The txt. file contains the basic description of the cryptocurrency selected or from which client can choose. The code is the following:
 ```python
 def print_text_file(filename:str):
@@ -173,7 +184,7 @@ def print_text_file(filename:str):
         print(line.strip())
 ```
 ## Running program
-All the functions are called in the main function, which also takes care of most of the communication with the user. The code is the following:
+All the functions are called in the main function, which also takes care of most of the communication with the user. Most of the functions are called from the operations file , which handles most of the filtering and getting information from the json file. The code is the following:
 ```python
 def main():
     """

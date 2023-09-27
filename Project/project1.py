@@ -23,7 +23,7 @@ def do_login():
     input_username = input("Username: ")
     input_password = input("Password: ")
     result = try_login(input_username, input_password)
-    while not result and attempts > 0:
+    while not result and attempts > 1:
         attempts -= 1
         pRed(f"You have {attempts} attempts left")
         input_username = input("Username: ")
