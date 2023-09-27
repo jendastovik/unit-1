@@ -62,6 +62,7 @@ flow diagram for find_bydate function (works the same for find_bydescription and
 | 4       | Add and del tran.        | To have system to delete and add transactions for different users                        | 15min         | Sep 18                 | C         |
 | 5       | Create colours           | To have different colour coding in terminal and make visualisation clearer               | 10min         | Sep 19                 | C         |
 | 6       | Edit text visualisation  | To save all most of the texts into txt. files                                            | 15min         | Sep 20                 | C         |
+| 7       | Add comments             | To have the code clearly commented                                                       | 20min         | Sep 25                 | C         |
 
 # Criteria C: Development
 All the functions are commented in the code in files operations.py and project.py
