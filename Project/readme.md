@@ -64,6 +64,7 @@ flow diagram for find_bydate function (works the same for find_bydescription and
 | 6       | Edit text visualisation  | To save all most of the texts into txt. files                                            | 15min         | Sep 20                 | C         |
 
 # Criteria C: Development
+All the functions are commented in the code in files operations.py and project.py
 
 ## Login System
 My client requires a system to protect the private data. I thought about using a login system to accomplish this requirement using a if condition and the open command to work with a csv file. The csv file contains the username and password of the user. The code is the following:
@@ -169,5 +170,46 @@ def print_text_file(filename:str):
         data = f.readlines()
     for line in data:
         print(line.strip())
+```
+## Running program
+All the functions are called in the main function, which also takes care of most of the communication with the user. The code is the following:
+```python
+def main():
+    """
+    main function, goes through the program, 
+    gives the user the option to login
+    then view transactions, add transactions, delete transactions, view balance and exit
+    """
+    result, username = do_login()
+    if not result:
+        pRed("You have exceeded the number of attempts")
+        return
+    print(f"Welcome to the virtual lager, {username}\n")
+    print_text_file("Project/texts/teather.txt")
+    continue_program = True
+    while continue_program:
+        print()
+        print_text_file("Project/texts/op1.txt")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            view_transactions(username)
+        elif choice == "2":
+            date = input("Enter date: ")
+            amount = input("Enter amount: ")
+            description = input("Enter description: ")
+            operations.add_transaction(date, amount, description, username)
+        elif choice == "3":
+            date = input("Enter date: ")
+            amount = input("Enter amount: ")
+            description = input("Enter description: ")
+            try:
+                operations.Delete_Transaction(date, amount, description, username)
+            except:
+                pRed("Transaction not found")
+        elif choice == "4":
+            dates, amounts, descriptions = operations.load_transactions(username)
+            pGreen(f"Total balance is: {operations.Balance(amounts)}")
+        elif choice == "5":
+            continue_program = False
 ```
 
