@@ -1,0 +1,4 @@
+1. View transactions by date
+2. View transactions by description
+3. View transactions by amount
+4. View all transactions
