@@ -10,8 +10,8 @@ def door_flipper(N):
     return doors
 ```
 
-# Output
+## Output
 ![](/assets/Q_15.png)
 
-# Flowchart
+## Flowchart
 ![](/flowCharts/q15.png)
