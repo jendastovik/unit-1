@@ -34,7 +34,7 @@ Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate
 3. The electronic ledger allows to enter, withdraw and record transactions.
 4. The electronic ledger allows to display the transaction history, which can be filtred by date, category or amount in certain range and display current balance.
 5. You can switch between different users with different transactions, every user has it's own password and username.
-6. Password protected by 
+6. Password protected by hashing and salt.
 
 # Criteria B: Design
 

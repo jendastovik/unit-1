@@ -1,5 +1,6 @@
 import operations
 from colours import *
+import os
 
 def try_login(username:str, password:str) -> bool:
     """
@@ -65,7 +66,7 @@ def view_transactions(username:str):
         dates, descriptions, amounts = operations.Find_ByAmount(dates, amounts, descriptions, minamount, maxamount)
         pGreen(f"transactions for the amount between {minamount} and {maxamount} Tether are the following:")
         for i in range(len(dates)):
-            (f"{dates[i]}, {amounts[i]} USDT, {descriptions[i]}")
+            print(f"{dates[i]}, {amounts[i]} USDT, {descriptions[i]}")
     elif choice == "4":
         pGreen(f"All {len(dates)} transactions are the following:")
         for i in range(len(dates)):
@@ -78,10 +79,12 @@ def main():
     gives the user the option to login
     then view transactions, add transactions, delete transactions, view balance and exit
     """
+    ans = input("Do you want to crate a new user? (y/n): ")
     result, username = do_login()
     if not result:
         pRed("You have exceeded the number of attempts")
         return
+    os.system('cls')
     print(f"Welcome to the virtual lager, {username}\n")
     print_text_file("Project/texts/teather.txt")
     continue_program = True
@@ -89,6 +92,7 @@ def main():
         print()
         print_text_file("Project/texts/op1.txt")
         choice = input("Enter your choice: ")
+        os.system('cls')
         if choice == "1":
             view_transactions(username)
         elif choice == "2":

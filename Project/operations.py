@@ -62,7 +62,7 @@ def add_transaction(date, amount, description, user):
     """
     with open("Project/transactions.json", "r") as f: #opens the json file
         data = json.load(f) #loads the data from the json file
-    data[user].append({"date": date, "amount": amount, "description": description}) #adds the transaction to the list of transactions of the user
+    data[user].append({"date": date, "amount": int(amount), "description": description}) #adds the transaction to the list of transactions of the user
     with open("Project/transactions.json", "w") as f: #opens the json file
         json.dump(data, f, indent=4) #saves the changes to the json file
 
@@ -83,7 +83,7 @@ def Delete_Transaction(date, amount, description, user):
         data = json.load(f) #loads the data from the json file
     deleted = False
     for tran in data[user]: #iterates through the transactions of the user
-        if tran["date"] == date and tran["amount"] == amount and tran["description"] == description: #if the transaction is the same as the transaction we are looking for, it deletes it
+        if tran["date"] == date and tran["amount"] == int(amount) and tran["description"] == description: #if the transaction is the same as the transaction we are looking for, it deletes it
             data[user].remove(tran)
             deleted = True
             colours.pGreen("Transaction deleted")
