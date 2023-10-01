@@ -35,6 +35,7 @@ Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate
 4. The electronic ledger allows to display the transaction history, which can be filtred by date, category or amount in certain range and display current balance.
 5. You can switch between different users with different transactions, every user has it's own password and username.
 6. Password protected by hashing and salt.
+7. The electronic ledger can display current value of tether from the website.
 
 ## Justification of the solution
 ### Programming language - Python
@@ -49,12 +50,16 @@ It allows to save the data in a dictionary format and allows to create different
 ### Hash encoding
 Hash encoding is a method of protecting passwords. It is a one-way function, which means that it is impossible to decode the password. It is also easy to use for the developer, because it does not require any additional libraries. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
 
+### API request
+API request is a method of getting data from a website. It is also easy to use for the developer, because it does not require any additional libraries and allows simple communication with the server with information. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
+
 ## Citations
-https://tether.to/about-us/
+https://tether.to/about-us/ 
 https://www.python.org/doc/essays/blurb/
 https://www.techopedia.com/definition/28178/text-based
 https://www.w3schools.com/python/python_json.asp
 https://www.geeksforgeeks.org/hashing-passwords-python/
+https://www.geeksforgeeks.org/get-post-requests-using-python/
 
 # Criteria B: Design
 
@@ -89,6 +94,7 @@ https://www.geeksforgeeks.org/hashing-passwords-python/
 | 9       | Develope documentaion    | To have a documentation, which clearly describes features and why they were used.        | 60min         | Oct 1                  | B, C      |
 | 10      | Testing                  | To have a testing plan with tests made                                                   | 30min         | Oct 1                  | A         |
 | 11      | Create Hash encoding     | To create system that protects password by hash encoding and salt                        | 30min         | Oct 2                  | B, C      |
+| 12      | Create API request       | To create system that gets the value of tether from the website                          | 30min         | Oct 3                  | B, C      |
 
 
 ## Testing Plan
@@ -221,6 +227,21 @@ def print_text_file(filename:str):
     for line in data:
         print(line.strip())
 ```
+
+## API request to get current value of tether
+My client requires a system that displays the current value of the cryptocurrency. I thought about using an API request to accomplish this requirement. The API request is made to the website https://api.coincap.io/v2/assets/tether which returns json file with information about the coin. Its value is then extracted. The code is the following:
+```python
+def get_tether_value():
+    """
+    gets the value of tether from the api
+    """
+    url = "https://api.coincap.io/v2/assets/tether"
+    payload={}
+    headers = {}
+    response = requests.request("GET", url, headers=headers, data=payload) #api request
+    return response.json()["data"]["priceUsd"] #extracts the value of tether from the json response
+```
+
 ## Running program
 All the functions are called in the main function, which also takes care of most of the communication with the user. Most of the functions are called from the operations file , which handles most of the filtering and getting information from the json file. The code is the following:
 ```python
