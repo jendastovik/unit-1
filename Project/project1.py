@@ -1,6 +1,7 @@
 import operations
 from colours import *
 import os
+from tether_value import *
 
 def try_login(username:str, password:str) -> bool:
     """
@@ -87,6 +88,7 @@ def main():
     os.system('cls')
     print(f"Welcome to the virtual lager, {username}\n")
     print_text_file("Project/texts/teather.txt")
+    print(f"The current value of Tether is {get_tether_value()} USD")
     continue_program = True
     while continue_program:
         print()
