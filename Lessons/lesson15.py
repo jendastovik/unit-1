@@ -16,4 +16,7 @@ def ran(L, N):
 def run_ran(N, L):
     print(f"{L} {N} --> {ran(L,N)}")
 
-run_ran(999, 5)
+#run_ran(999, 5)
+
+print("10 --> " +   str(door_flipper(10)))
+print("7 --> " + str(door_flipper(7)))

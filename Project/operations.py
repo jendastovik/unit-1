@@ -50,7 +50,7 @@ def Find_ByAmount(dates, amounts, descriptions, minamount, maxamont):
     ret_descriptions = []
     ret_amounts = []
     for i in range(len(amounts)): #iterates through the amounts
-        if int(amounts[i]) >= minamount and int(amounts[i]) <= maxamont: #if the amount is between the min and max amount, it adds the date, description and amount to the lists
+        if abs(int(amounts[i])) >= minamount and abs(int(amounts[i])) <= maxamont: #if the amount is between the min and max amount, it adds the date, description and amount to the lists
             ret_dates.append(dates[i])
             ret_descriptions.append(descriptions[i])
             ret_amounts.append(amounts[i])
