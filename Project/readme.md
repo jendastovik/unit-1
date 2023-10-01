@@ -36,6 +36,26 @@ Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate
 5. You can switch between different users with different transactions, every user has it's own password and username.
 6. Password protected by hashing and salt.
 
+## Justification of the solution
+### Programming language - Python
+Python is a programming language that lets you work quickly and integrate systems more effectively. It is a high-level programming language, with simple syntax and dynamic typing, making it an ideal language for scripting and rapid application development. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available.
+
+### Text-based software
+Text-based software is a software that runs in the terminal. It is a software that is easy to use and does not require any graphical user interface. It is also easy to use for the developer, because it does not require any additional libraries. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
+
+### Json file
+It allows to save the data in a dictionary format and allows to create different transaction lists for different users. It is also easy to use for the developer, because it does not require any additional libraries. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
+
+### Hash encoding
+Hash encoding is a method of protecting passwords. It is a one-way function, which means that it is impossible to decode the password. It is also easy to use for the developer, because it does not require any additional libraries. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
+
+## Citations
+https://tether.to/about-us/
+https://www.python.org/doc/essays/blurb/
+https://www.techopedia.com/definition/28178/text-based
+https://www.w3schools.com/python/python_json.asp
+https://www.geeksforgeeks.org/hashing-passwords-python/
+
 # Criteria B: Design
 
 ## System Diagram
@@ -62,9 +82,27 @@ Launched in 2014, Tether is a blockchain-enabled platform designed to facilitate
 | 2       | Create login system      | To have a flow diagram and the code for login                                            | 30min         | Sep 14                 | B, C      |
 | 3       | Create filtration system | To have a functional system and flowchart for saving and filtering transactions          | 30min         | Sep 17                 | B, C      |
 | 4       | Add and del tran.        | To have system to delete and add transactions for different users                        | 15min         | Sep 18                 | C         |
-| 5       | Create colours           | To have different colour coding in terminal and make visualisation clearer               | 10min         | Sep 19                 | C         |
+| 5       | Create colours           | To create system, that displays texts in terminal in different colours                   | 10min         | Sep 19                 | C         |
 | 6       | Edit text visualisation  | To save all most of the texts into txt. files                                            | 15min         | Sep 20                 | C         |
 | 7       | Add comments             | To have the code clearly commented                                                       | 20min         | Sep 25                 | C         |
+| 8       | Correct mistakes         | To change the code based on the client feedback                                          | 40min         | Sep 30                 | A, C      |
+| 9       | Develope documentaion    | To have a documentation, which clearly describes features and why they were used.        | 60min         | Oct 1                  | B, C      |
+| 10      | Testing                  | To have a testing plan with tests made                                                   | 30min         | Oct 1                  | A         |
+| 11      | Create Hash encoding     | To create system that protects password by hash encoding and salt                        | 30min         | Oct 2                  | B, C      |
+
+
+## Testing Plan
+| Test No | Type of test        | Area Tested               | Outcome of test                                                                                                | Time estimate | Target completion date | Criterion |
+|---------|---------------------|---------------------------|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
+| 1       | Unit Testing        | Login System              | Confirmed that user can login and system gives him 3 attempts                                                  | 5min          | Sep 30                 | B         |
+| 2       | Unit Testing        | Add/delete tran.          | Confirm that user can add/delete transaction and the json file is updated                                      | 5min          | Sep 30                 | B         |
+| 3       | Unit Testing        | Balance viewer            | Confirm that balance displayed by programm is correct                                                          | 5min          | Sep 30                 | B         |
+| 4       | Unit Testing        | Filtering tran.           | Confirm that the filtration of transaction based on different inputs works                                     | 5min          | Sep 30                 | B         |
+| 5       | Unit Testing        | Different users           | Confirm that when signing with different username and password,  transactions also changes                     | 5min          | Sep 30                 | B         |
+| 6       | Integration Testing | Add tran. and  view tran. | Confirm that the add transaction and viewing and filtering transactions  functions work well with one another. | 5min          | Sep 30                 | B         |
+| 7       | System Testing      | General                   | Confirm that the system works as a whole                                                                       | 5min          | Sep 30                 | B         |
+| 8       | Userbility Testing  | General                   | Confirming that the system is clear                                                                            | 5min          | Sep 30                 | B         |
+
 
 # Criteria C: Development
 All the functions are commented in the code in files operations.py and project.py
