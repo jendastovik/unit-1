@@ -225,3 +225,7 @@ def main():
             continue_program = False
 ```
 
+# Video proof
+Here is a video proof of the project: https://drive.google.com/file/d/1-G26xBxbfvCaeoeWtWYoHNuZr5njpXzD/view?usp=sharing
+
+
