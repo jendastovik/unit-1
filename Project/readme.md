@@ -54,12 +54,12 @@ Hash encoding is a method of protecting passwords. It is a one-way function, whi
 API request is a method of getting data from a website. It is also easy to use for the developer, because it does not require any additional libraries and allows simple communication with the server with information. It is also easy to use for the client, because it does not require any additional installations and can be run on any computer.
 
 ## Citations
-https://tether.to/about-us/ 
-https://www.python.org/doc/essays/blurb/
-https://www.techopedia.com/definition/28178/text-based
-https://www.w3schools.com/python/python_json.asp
-https://www.geeksforgeeks.org/hashing-passwords-python/
-https://www.geeksforgeeks.org/get-post-requests-using-python/
+https://tether.to/about-us/ - About Tether 
+https://www.python.org/doc/essays/blurb/ - About Python
+https://www.techopedia.com/definition/28178/text-based - About text-based software
+https://www.w3schools.com/python/python_json.asp - About json
+https://www.geeksforgeeks.org/hashing-passwords-python/ - About hash encoding
+https://www.geeksforgeeks.org/get-post-requests-using-python/ - About API request
 
 # Criteria B: Design
 
