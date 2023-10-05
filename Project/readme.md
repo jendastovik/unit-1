@@ -55,10 +55,15 @@ API request is a method of getting data from a website. It is also easy to use f
 
 ## Citations
 https://tether.to/about-us/ - About Tether 
+
 https://www.python.org/doc/essays/blurb/ - About Python
+
 https://www.techopedia.com/definition/28178/text-based - About text-based software
+
 https://www.w3schools.com/python/python_json.asp - About json
+
 https://www.geeksforgeeks.org/hashing-passwords-python/ - About hash encoding
+
 https://www.geeksforgeeks.org/get-post-requests-using-python/ - About API request
 
 # Criteria B: Design
