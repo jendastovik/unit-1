@@ -18,7 +18,7 @@ def blackBox3(sen):
 ```
 
 ## Output
-![](/assets/Q_14.png)
+![](/assets/Q_13.png)
 
 ## Flowchart
-![](/flowCharts/q14.png)
+![](/flowCharts/q13.png)

@@ -1,4 +1,5 @@
 def blackBox3(sen):
+    sen = sen.lower()
     out = ""
     used = {}
     for l in sen:
@@ -12,5 +13,7 @@ def blackBox3(sen):
         out += str(used[l])
     return out
 
-print(blackBox3("hello world"))
-print(blackBox3("aAbBaA"))
+print("hello world -> " + blackBox3("hello world"))
+print("aaaaAABB -> " + blackBox3("aaaaAABB"))
+print("abABabAB -> " + blackBox3("abABabAB"))
+print("Create a Function -> " + blackBox3("Create a Function"))
