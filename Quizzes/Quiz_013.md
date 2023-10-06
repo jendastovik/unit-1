@@ -3,6 +3,7 @@
 ## Python code
 ```python
 def blackBox3(sen):
+    sen = sen.lower()
     out = ""
     used = {}
     for l in sen:
